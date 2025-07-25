@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Calculator - Operator E2E Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header with logo and navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/120x40/333/fff?text=DEMO+LOGO" alt="Demo Logo" id="site-logo">
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li class="dropdown">
+                        <a href="/products" class="dropdown-toggle">Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/products#category1">Category 1</a></li>
+                            <li><a href="/products#category2">Category 2</a></li>
+                            <li><a href="/products#category3">Category 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/contact">About</a></li>
+                    <li><a href="/tools/calculator">Calculator</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search products...">
+                    <button id="search-btn" type="button">Search</button>
+                </div>
+                <button id="signin-btn" class="btn-signin">Sign In</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-header">
+                    <h1>Contract Calculator</h1>
+                    <p>Calculate your contract compensation including taxes and deductions.</p>
+                </div>
+
+                <div class="calculator-container">
+                    <form id="calculator-form" class="calculator-form">
+                        <div class="form-header">
+                            <h2>Contract Details</h2>
+                            <button type="button" id="reset-btn" class="btn btn-secondary reset-button">Reset</button>
+                        </div>
+                        
+                        <div class="form-section">
+                            <div class="form-group">
+                                <label for="contract-title">Contract Title</label>
+                                <input type="text" id="contract-title" name="contractTitle" placeholder="Enter contract title">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Compensation</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="hourly-rate">Hourly Rate ($)</label>
+                                    <input type="number" id="hourly-rate" name="hourlyRate" value="150" min="0" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label for="hours-per-week">Hours per Week</label>
+                                    <input type="number" id="hours-per-week" name="hoursPerWeek" value="40" min="0" max="168">
+                                </div>
+                                <div class="form-group">
+                                    <label for="weeks-per-year">Weeks per Year</label>
+                                    <input type="number" id="weeks-per-year" name="weeksPerYear" value="52" min="0" max="52">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" id="calculate-btn" class="btn btn-primary calculate-button">Calculate</button>
+                        </div>
+                    </form>
+
+                    <!-- Calculation Results Panel -->
+                    <div id="calculation-results" class="calculation-results" style="display: none;">
+                        <h2>Calculation Results</h2>
+                        
+                        <div class="results-cards">
+                            <div class="result-card">
+                                <div class="card-header">
+                                    <h3>Gross Pay</h3>
+                                </div>
+                                <div class="card-content">
+                                    <div class="amount" id="gross-pay-amount">$0</div>
+                                    <div class="period">Annual</div>
+                                </div>
+                            </div>
+
+                            <div class="result-card">
+                                <div class="card-header">
+                                    <h3>Net Pay</h3>
+                                </div>
+                                <div class="card-content">
+                                    <div class="amount" id="net-pay-amount">$0</div>
+                                    <div class="period">Annual (After Taxes)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tax Breakdown Accordion -->
+                        <div class="tax-breakdown">
+                            <div class="accordion-header" id="tax-breakdown-toggle">
+                                <h3>Tax Breakdown</h3>
+                                <span class="accordion-icon">▼</span>
+                            </div>
+                            <div class="accordion-content" id="tax-breakdown-content" style="display: none;">
+                                <div class="tax-rows">
+                                    <div class="tax-row">
+                                        <span class="tax-label">Federal Tax (22%)</span>
+                                        <span class="tax-amount" id="federal-tax">$0</span>
+                                    </div>
+                                    <div class="tax-row">
+                                        <span class="tax-label">State Tax (8%)</span>
+                                        <span class="tax-amount" id="state-tax">$0</span>
+                                    </div>
+                                    <div class="tax-row">
+                                        <span class="tax-label">Social Security (6.2%)</span>
+                                        <span class="tax-amount" id="social-security">$0</span>
+                                    </div>
+                                    <div class="tax-row">
+                                        <span class="tax-label">Medicare (1.45%)</span>
+                                        <span class="tax-amount" id="medicare">$0</span>
+                                    </div>
+                                    <div class="tax-row total-tax">
+                                        <span class="tax-label"><strong>Total Taxes</strong></span>
+                                        <span class="tax-amount" id="total-tax"><strong>$0</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sign In Modal (reused from index) -->
+    <div id="signin-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sign In</h2>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="signin-form">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="button" class="btn btn-secondary" id="cancel-login">Cancel</button>
+                    </div>
+                    <div id="login-error" class="error-message" style="display: none;"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Results Modal -->
+    <div id="search-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Search Results</h2>
+                <button class="modal-close" id="search-modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="search-results">
+                    <p>Search results will appear here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Operator E2E Demo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

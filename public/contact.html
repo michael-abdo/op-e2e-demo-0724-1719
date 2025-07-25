@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Operator E2E Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header with logo and navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/120x40/333/fff?text=DEMO+LOGO" alt="Demo Logo" id="site-logo">
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li class="dropdown">
+                        <a href="/products" class="dropdown-toggle">Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/products#category1">Category 1</a></li>
+                            <li><a href="/products#category2">Category 2</a></li>
+                            <li><a href="/products#category3">Category 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/contact">About</a></li>
+                    <li><a href="/tools/calculator">Calculator</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search products...">
+                    <button id="search-btn" type="button">Search</button>
+                </div>
+                <button id="signin-btn" class="btn-signin">Sign In</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Get in touch with us. We'd love to hear from you!</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>Get In Touch</h2>
+                        <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <h4>Email</h4>
+                                <p>contact@demo.com</p>
+                            </div>
+                            <div class="contact-item">
+                                <h4>Phone</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                            <div class="contact-item">
+                                <h4>Address</h4>
+                                <p>123 Demo Street<br>Test City, TC 12345</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-email">Email *</label>
+                                <input type="email" id="contact-email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="6" required></textarea>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="reset" class="btn btn-secondary">Clear</button>
+                            </div>
+                        </form>
+
+                        <div id="form-success" class="success-message" style="display: none;">
+                            <h3>Thank you!</h3>
+                            <p>Your message has been sent successfully. We'll get back to you soon!</p>
+                        </div>
+
+                        <div id="form-error" class="error-message" style="display: none;">
+                            <h3>Error</h3>
+                            <p>There was an error sending your message. Please try again.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="company-info">
+            <div class="container">
+                <h2>About Our Company</h2>
+                <p>We are a demo company created for testing purposes. Our mission is to provide reliable testing scenarios for various UI components and user interactions. This includes form validation, navigation testing, accessibility checks, and more.</p>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Our Mission</h3>
+                        <p>To provide comprehensive testing scenarios for modern web applications.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Our Values</h3>
+                        <p>Quality, reliability, and thorough testing methodologies.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Our Team</h3>
+                        <p>Experienced developers and QA engineers dedicated to excellence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sign In Modal (reused from index) -->
+    <div id="signin-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sign In</h2>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="signin-form">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="button" class="btn btn-secondary" id="cancel-login">Cancel</button>
+                    </div>
+                    <div id="login-error" class="error-message" style="display: none;"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Results Modal -->
+    <div id="search-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Search Results</h2>
+                <button class="modal-close" id="search-modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="search-results">
+                    <p>Search results will appear here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Operator E2E Demo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Operator E2E Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header with logo and navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/120x40/333/fff?text=DEMO+LOGO" alt="Demo Logo" id="site-logo">
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li class="dropdown">
+                        <a href="/products" class="dropdown-toggle">Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/products#category1">Category 1</a></li>
+                            <li><a href="/products#category2">Category 2</a></li>
+                            <li><a href="/products#category3">Category 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/contact">About</a></li>
+                    <li><a href="/tools/calculator">Calculator</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search products...">
+                    <button id="search-btn" type="button">Search</button>
+                </div>
+                <button id="signin-btn" class="btn-signin">Sign In</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Products</h1>
+                <p>Explore our wide range of products designed for testing various UI interactions.</p>
+            </div>
+        </section>
+
+        <section class="product-gallery">
+            <div class="container">
+                <div class="products-grid">
+                    <!-- Product 1 - Good alt text -->
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/300x200/4CAF50/fff?text=Product+1" 
+                             alt="Wireless Bluetooth Headphones with noise cancellation">
+                        <div class="product-info">
+                            <h3>Premium Wireless Headphones</h3>
+                            <p class="price">$299.99</p>
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 - Missing alt text (accessibility issue) -->
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/300x200/2196F3/fff?text=Product+2" alt="">
+                        <div class="product-info">
+                            <h3>Smart Fitness Tracker Watch</h3>
+                            <p class="price">$199.99</p>
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 - Good alt text -->
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/300x200/FF9800/fff?text=Product+3" 
+                             alt="Portable laptop with 15-inch screen and backlit keyboard">
+                        <div class="product-info">
+                            <h3>Ultra-Portable Laptop Computer</h3>
+                            <p class="price">$899.99</p>
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 - Broken image URL (shows broken placeholder) -->
+                    <div class="product-card">
+                        <img src="https://broken-url-that-does-not-exist/image.jpg" 
+                             alt="Wireless charging pad for smartphones">
+                        <div class="product-info">
+                            <h3>Fast Wireless Charging Pad</h3>
+                            <p class="price">$49.99</p>
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 - Missing alt text (accessibility issue) -->
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/300x200/9C27B0/fff?text=Product+5">
+                        <div class="product-info">
+                            <h3>Professional Camera Lens Kit</h3>
+                            <p class="price">$599.99</p>
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 - Good alt text -->
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/300x200/607D8B/fff?text=Product+6" 
+                             alt="Ergonomic office chair with lumbar support and adjustable height">
+                        <div class="product-info">
+                            <h3>Ergonomic Office Chair</h3>
+                            <p class="price">$349.99</p>
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 7 - Broken image URL (shows broken placeholder) -->
+                    <div class="product-card">
+                        <img src="https://another-broken-url/missing-image.png" alt="">
+                        <div class="product-info">
+                            <h3>Bluetooth Speaker System</h3>
+                            <p class="price">$129.99</p>
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 8 - Good alt text -->
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/300x200/795548/fff?text=Product+8" 
+                             alt="Mechanical gaming keyboard with RGB backlighting">
+                        <div class="product-info">
+                            <h3>Mechanical Gaming Keyboard</h3>
+                            <p class="price">$149.99</p>
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sign In Modal (reused from index) -->
+    <div id="signin-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sign In</h2>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="signin-form">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="button" class="btn btn-secondary" id="cancel-login">Cancel</button>
+                    </div>
+                    <div id="login-error" class="error-message" style="display: none;"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Results Modal -->
+    <div id="search-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Search Results</h2>
+                <button class="modal-close" id="search-modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="search-results">
+                    <div class="search-result">
+                        <h4>Premium Wireless Headphones</h4>
+                        <p>High-quality wireless headphones with noise cancellation.</p>
+                    </div>
+                    <div class="search-result">
+                        <h4>Smart Fitness Tracker</h4>
+                        <p>Track your fitness goals with this smart wearable device.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Operator E2E Demo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator E2E Demo - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header with logo and navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/120x40/333/fff?text=DEMO+LOGO" alt="Demo Logo" id="site-logo">
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li class="dropdown">
+                        <a href="/products" class="dropdown-toggle">Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/products#category1">Category 1</a></li>
+                            <li><a href="/products#category2">Category 2</a></li>
+                            <li><a href="/products#category3">Category 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/contact">About</a></li>
+                    <li><a href="/tools/calculator">Calculator</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search products...">
+                    <button id="search-btn" type="button">Search</button>
+                </div>
+                <button id="signin-btn" class="btn-signin">Sign In</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Welcome to Operator E2E Demo</h1>
+                <p>This is a demonstration site for testing Operator functionality with various UI components and interactions.</p>
+                
+                <div class="cta-buttons">
+                    <button id="get-started-btn" class="btn btn-primary">Get Started</button>
+                    <button id="learn-more-btn" class="btn btn-secondary">Learn More</button>
+                    <button id="disabled-btn" class="btn btn-disabled" disabled>Disabled Button</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>Login Testing</h3>
+                        <p>Test authentication flows and form validation</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Navigation Testing</h3>
+                        <p>Test menu interactions and responsive behavior</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Form Testing</h3>
+                        <p>Test contact forms and validation logic</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Calculator Testing</h3>
+                        <p>Test complex form interactions and calculations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sign In Modal -->
+    <div id="signin-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sign In</h2>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="signin-form">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="button" class="btn btn-secondary" id="cancel-login">Cancel</button>
+                    </div>
+                    <div id="login-error" class="error-message" style="display: none;"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Results Modal -->
+    <div id="search-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Search Results</h2>
+                <button class="modal-close" id="search-modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="search-results">
+                    <p>Search results will appear here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Operator E2E Demo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
