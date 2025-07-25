@@ -106,7 +106,27 @@ function handleSignIn() {
     // Simulate login success
     setTimeout(() => {
         hideModal(document.getElementById('signin-modal'));
-        alert('Login successful! (Demo mode)');
+        
+        // Show success notification instead of alert
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 9999;
+            font-weight: 500;
+        `;
+        notification.textContent = 'Login successful! (Demo mode)';
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
     }, 500);
 }
 
