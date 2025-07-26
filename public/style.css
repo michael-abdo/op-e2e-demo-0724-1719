@@ -34,6 +34,12 @@ body {
     padding: 15px 20px;
 }
 
+header.header {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+}
+
 /* Logo positioning - must be in top-left for tests */
 .logo {
     position: absolute;
@@ -41,7 +47,19 @@ body {
     left: 20px;
     display: flex;
     align-items: center;
-    height: 70px;}
+    height: 70px;
+}
+
+.header-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    margin-right: 0.75rem;
+}
+
+.header-logo:not([src]) { 
+    visibility: hidden; 
+}
 
 .logo img {
     height: 40px;
@@ -823,4 +841,6 @@ footer {
         align-items: flex-start;
     }
 }
+
+
 
